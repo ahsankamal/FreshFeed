@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-
+import FoodAutoComplete from './containers/FoodAutoComplete';
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, Navbar, Nav} from 'react-bootstrap';
 import React, { useEffect, useState, useRef, Component } from 'react';
@@ -14,7 +14,6 @@ function App() {
   const onSubmit = (data) => {
     console.log(data);
   }
-
 
   return (
 
@@ -56,8 +55,8 @@ function App() {
 
     <div className="form-group row">
       <label className="col-sm-2 col-form-label">What food the ducks were fed?</label>
-        <input name="food" className="form-control" ref={register} />
-        {/* <Auto /> */}
+        {/* <input name="food" className="form-control" ref={register} /> */}
+        <FoodAutoComplete />
     </div>
 
     <div className="form-group row">
