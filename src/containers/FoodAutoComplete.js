@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef, Component } from 'react';
 
-const FoodAutoComplete = () => {
+const FoodAutoComplete = (props) => {
     const [display, setDisplay] = useState(false);
     const [options, setOptions] = useState([]);
     const [search, setSearch] = useState("");
-  
   
     // click outside to close the autocomplete
     const autoRef = useRef(null);
@@ -34,17 +33,23 @@ const FoodAutoComplete = () => {
         setDisplay(false);
       }
     });
+
+    const handleFoodNameChange = ((event)=>{
+      console.log("new value", event.target.value);
+      setSearch(event.target.value);
+      // props.onFoodNameChange();
+    });
   
     return (
       <div ref={autoRef} className="col-sm-10">
           <input id = "auto"
                 className="form-control"
                 onClick={()=>setDisplay(!display)}
-                name="search"
+                name="foodName"
                 type="text"
                 placeholder="type to search"
                 value={search}
-                onChange={(event)=>setSearch(event.target.value)}/>
+                onChange={handleFoodNameChange}/>
           {
             display && 
             (<div>
