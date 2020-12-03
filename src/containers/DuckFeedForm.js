@@ -12,20 +12,13 @@ function DuckFeedForm() {
 
   const { register, handleSubmit, watch, errors } = useForm();
 
-  // const [foodName, setFoodName] = useState('');
-
-  // const handleFoodNameChangeParent = ((event)=>{
-  //   console.log("food name", event.target.value);
-  //   setFoodName(event.target.value);
-  // });
-
   const onSubmit = (data) => {
     console.log(data);
   }
 
   return (
 
-    <div>
+    <div >
     
     <br></br>
     <br></br>
@@ -34,52 +27,52 @@ function DuckFeedForm() {
     <form className="App" onSubmit={handleSubmit(onSubmit)}>
     <h1> Duck Feed Form</h1>
 
-    <div className="form-group row">
+    <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">Feeder Name</label>
-      <div className="col-sm-10">
+      <div className="col-sm-3">
         <input name="feeder" type="text" className="form-control" defaultValue="test" ref={register} />
       </div>
     </div>
 
-    <div className="form-group row">
-      <label className="col-sm-2 col-form-label">Feeder Email</label>
-      <div className="col-sm-10">
+    <div className="form-group row d-flex justify-content-center">
+      <label className="col-sm-2 col-form-label ">Feeder Email</label>
+      <div className="col-sm-3">
         <input name="email" type="email" className="form-control" ref={register} />
       </div>
     </div>
 
-    <div className="form-group row">
+    <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">Enter the number of ducks fed by you.</label>
-      <div className="col-sm-10">
+      <div className="col-sm-3">
         <input name="foodRecipientCount" type="number" className="form-control" ref={register} />
       </div>
     </div>
 
-    <div className="form-group row">
+    <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">What food the ducks were fed?</label>
-      <div className="col-sm-10">
+      <div className="col-sm-3">
         <input name="foodName" className="form-control" ref={register} />
       </div>
         {/* <FoodAutoComplete /> */}
     </div>
 
-    <div className="form-group row">
+    <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">How much amount of food were they fed? (lbs)</label>
-      <div className="col-sm-10">
+      <div className="col-sm-3">
         <input name="amount" type="number" className="form-control" ref={register} />
       </div>
     </div>
 
-    <div className="form-group row">
+    <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">Enter the park location where you fed the ducks.</label>
-      <div className="col-sm-10">
+      <div className="col-sm-3">
         <input name="location" className="form-control" ref={register} />
       </div>
     </div>
 
-    <div className="form-group row">
+    <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">At what time did you feed the ducks?</label>
-      <div className="col-sm-10">
+      <div className="col-sm-3">
         <input name="time" className="form-control" ref={register} />
       </div>
     </div>
