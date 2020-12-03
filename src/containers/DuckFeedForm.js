@@ -6,15 +6,26 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, Navbar, Nav} from 'react-bootstrap';
 import React, { useEffect, useState, useRef, Component } from 'react';
 import { useForm } from "react-hook-form";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function DuckFeedForm() {
 
   const { register, handleSubmit, watch, errors } = useForm();
 
+  const [startDate, setStartDate] = useState(new Date());
+  const DateTimePicker = () => {
+    return (
+      <DatePicker selected={startDate} onChange={date => setStartDate(date) } showTimeSelect dateFormat="Pp"/>
+    );
+  };
+
+
   const onSubmit = (data) => {
     console.log(data);
+    console.log(startDate);
   }
+
 
   return (
 
@@ -73,7 +84,8 @@ function DuckFeedForm() {
     <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">At what time did you feed the ducks?</label>
       <div className="col-sm-3">
-        <input name="time" className="form-control" ref={register} />
+        {/* <input name="time" className="form-control" ref={register} /> */}
+        <DateTimePicker name="time"/>
       </div>
     </div>
 
