@@ -8,6 +8,7 @@ import React, { useEffect, useState, useRef, Component } from 'react';
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 
 function DuckFeedForm() {
 
@@ -24,6 +25,23 @@ function DuckFeedForm() {
   const onSubmit = (data) => {
     console.log(data);
     console.log(startDate);
+    console.log(process.env.REACT_APP_BACKEND_API_HOST+'api/submit/');
+
+    const formData = {
+        feederName: data.feederName,
+        email: data.email,
+        duckCount: data.duckCount,
+        foodName: data.foodName,
+        foodAmount: data.amount,
+        parkLocation: data.parkLocation,
+        dateTime: startDate
+    }
+
+    axios.post(process.env.REACT_APP_BACKEND_API_HOST+'api/submit', {formData} )
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
 
