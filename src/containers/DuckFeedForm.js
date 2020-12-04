@@ -1,7 +1,4 @@
-// import logo from './logo.svg';
-// import './';
 
-import FoodAutoComplete from './FoodAutoComplete';
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Button, Form, Navbar, Nav} from 'react-bootstrap';
 import React, { useEffect, useState, useRef, Component } from 'react';
@@ -15,12 +12,12 @@ function DuckFeedForm() {
   const { register, handleSubmit, watch, errors } = useForm();
 
   const [startDate, setStartDate] = useState(new Date());
+
   const DateTimePicker = () => {
     return (
       <DatePicker selected={startDate} onChange={date => setStartDate(date) } showTimeSelect dateFormat="Pp"/>
     );
   };
-
 
   const onSubmit = (data) => {
     console.log(data);
@@ -113,9 +110,6 @@ function DuckFeedForm() {
       </div>
     </div>
 
-    {/* <input name="exampleRequired" ref={register()} />
-    {errors.exampleRequired && <span>{errors.exampleRequired.message}</span>} */}
-    {/* <br></br> */}
 
     <Button variant="primary" type="submit">
       Submit

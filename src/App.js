@@ -2,14 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useForm } from "react-hook-form";
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import FoodAutoComplete from './containers/FoodAutoComplete';
 import DuckFeedForm from './containers/DuckFeedForm';
-import FeedFormList from './containers/FeedFormList'
-import {Button, Form, Navbar, Nav} from 'react-bootstrap';
+import FeedFormTable from './containers/FeedFormTable'
+import {Navbar, Nav} from 'react-bootstrap';
 
 function App() {
+
   return (
     <main>
       <div>
@@ -24,7 +24,7 @@ function App() {
       <Switch>
         <Route path="/" component={DuckFeedForm} exact />
         <Route path="/duckfeedform" component={DuckFeedForm} />
-        <Route path="/viewsubmission" component={FeedFormList} />
+        <Route path="/viewsubmission" component={FeedFormTable} />
         <Route component={Error} />
       </Switch>
     </main>
