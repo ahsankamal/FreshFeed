@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function DuckFeedForm() {
 
@@ -18,6 +19,8 @@ function DuckFeedForm() {
       <DatePicker selected={startDate} onChange={date => setStartDate(date) } showTimeSelect dateFormat="Pp"/>
     );
   };
+
+  let history = useHistory();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -38,6 +41,9 @@ function DuckFeedForm() {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        if (res.data.success === true){
+          history.push('/viewsubmission');
+        }
       })
   }
 
@@ -64,7 +70,7 @@ function DuckFeedForm() {
     <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label ">Feeder Email</label>
       <div className="col-sm-3">
-        <input name="email" type="email" className="form-control" placeHolder="Optional" ref={register} />
+        <input name="email" type="email" className="form-control" placeholder="Optional" ref={register} />
       </div>
     </div>
 
@@ -88,7 +94,7 @@ function DuckFeedForm() {
     <div className="form-group row d-flex justify-content-center">
       <label className="col-sm-2 col-form-label">How much amount of food were they fed? (lb)</label>
       <div className="col-sm-3">
-        <input name="amount" type="number" step="0.1" className="form-control" placeHolder="Pounds (lb)" ref={register({required: 'required field', min:{value:0, message:'Amount of food cannot be negative'}})} />
+        <input name="amount" type="number" step="0.1" className="form-control" placeholder="Pounds (lb)" ref={register({required: 'required field', min:{value:0, message:'Amount of food cannot be negative'}})} />
         {errors.amount && <span>{errors.amount.message}</span>}
       </div>
     </div>
